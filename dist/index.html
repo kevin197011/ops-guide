@@ -1,279 +1,291 @@
 <!DOCTYPE html>
 <html lang="zh">
-  <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>运维向导</title>
-    <style>
-      /* 默认模式（白天模式） */
-      body {
-        font-family: 'Microsoft YaHei', sans-serif; /* 微软雅黑字体 */
-        background-color: #f2f2f2; /* 浅灰色背景 */
-        margin: 0;
-        padding: 0;
-        color: #333;
-        transition: background-color 0.3s, color 0.3s;
-        padding-top: 80px; /* 增加顶部内边距以防止内容被头部遮挡 */
-      }
-      header {
-        background-color: #701516; /* Ruby 主色调 */
-        color: #fff;
-        padding: 20px 0;
-        text-align: center;
-        position: fixed;
-        top: 0;
-        left: 0;
-        width: 100%;
-        z-index: 1000;
-        box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
-        transition: background-color 0.3s, box-shadow 0.3s;
-      }
-      main {
-        max-width: 1200px;
-        margin: 20px auto;
-        padding: 20px;
-        background: #fff;
-        border-radius: 12px;
-        box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
-        transition: background 0.3s, box-shadow 0.3s;
-      }
-      h1 {
-        margin-top: 0;
-        font-size: 2.5rem;
-        letter-spacing: 1px;
-        font-weight: 600; /* 加粗标题 */
-      }
-      section {
-        margin-bottom: 30px; /* 增加间距 */
-        padding: 20px;
-        border: 1px solid #ddd;
-        border-radius: 12px;
-        background: #fafafa;
-        transition: background 0.3s, border 0.3s, box-shadow 0.3s;
-      }
-      section h2 {
-        margin-top: 0;
-        font-size: 1.8rem;
-        color: #701516; /* Ruby 主色调 */
-        margin-bottom: 15px; /* 增加标题和内容之间的间距 */
-        font-weight: 600; /* 加粗子标题 */
-      }
-      .grid-container {
-        display: grid;
-        grid-template-columns: repeat(auto-fill, minmax(240px, 1fr));
-        gap: 20px;
-      }
-      .grid-item {
-        background: #fff;
-        padding: 20px;
-        border-radius: 10px;
-        box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
-        transition: transform 0.3s, box-shadow 0.3s, background 0.3s;
-      }
-      .grid-item:hover {
-        transform: scale(1.05);
-        background: #f9e0e0;
-        box-shadow: 0 8px 16px rgba(0, 0, 0, 0.3);
-      }
-      a {
-        text-decoration: none;
-        color: #701516; /* Ruby 主色调 */
-        display: block;
-        font-weight: 600; /* 加粗链接文字 */
-        transition: color 0.3s, text-shadow 0.3s;
-      }
-      a:hover {
-        color: #4a0e0d; /* 更深的 Ruby 颜色 */
-        text-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
-        text-decoration: underline;
-      }
-      footer {
-        text-align: center;
-        padding: 20px;
-        background-color: #701516; /* Ruby 主色调 */
-        color: #fff;
-        position: fixed;
-        bottom: 0;
-        width: 100%;
-        box-shadow: 0 -4px 8px rgba(0, 0, 0, 0.2);
-        transition: background-color 0.3s, box-shadow 0.3s;
-      }
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>运维向导</title>
+  <style>
+    /* 默认模式（白天模式） */
+    body {
+      font-family: 'Microsoft YaHei', sans-serif; /* 微软雅黑字体 */
+      background-color: #f2f2f2; /* 浅灰色背景 */
+      margin: 0;
+      padding: 0;
+      color: #333; /* 默认文本颜色 */
+      transition: background-color 0.3s, color 0.3s;
+      padding-top: 80px; /* 增加顶部内边距以防止内容被头部遮挡 */
+    }
+    header {
+      background-color: #701516; /* Ruby 主色调 */
+      color: #fff;
+      padding: 20px 0;
+      text-align: center;
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      z-index: 1000;
+      box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+      transition: background-color 0.3s, box-shadow 0.3s;
+    }
+    main {
+      max-width: 1200px;
+      margin: 20px auto;
+      padding: 20px;
+      background: #fff;
+      border-radius: 12px;
+      box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
+      transition: background 0.3s, box-shadow 0.3s;
+    }
+    h1 {
+      margin-top: 0;
+      font-size: 2.5rem;
+      letter-spacing: 1px;
+      font-weight: 600; /* 加粗标题 */
+    }
+    section {
+      margin-bottom: 30px; /* 增加间距 */
+      padding: 20px;
+      border: 1px solid #ddd;
+      border-radius: 12px;
+      background: #fafafa;
+      transition: background 0.3s, border 0.3s, box-shadow 0.3s;
+    }
+    section h2 {
+      margin-top: 0;
+      font-size: 1.8rem;
+      color: #701516; /* Ruby 主色调 */
+      margin-bottom: 15px; /* 增加标题和内容之间的间距 */
+      font-weight: 600; /* 加粗子标题 */
+    }
+    .grid-container {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(240px, 1fr));
+      gap: 20px;
+    }
+    .grid-item {
+      background: #fff;
+      padding: 20px;
+      border-radius: 10px;
+      box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+      transition: transform 0.3s, box-shadow 0.3s, background 0.3s;
+    }
+    .grid-item:hover {
+      transform: scale(1.05);
+      background: #f9e0e0;
+      box-shadow: 0 8px 16px rgba(0, 0, 0, 0.3);
+    }
+    a {
+      text-decoration: none;
+      color: #701516; /* Ruby 主色调 */
+      display: block;
+      font-weight: 600; /* 加粗链接文字 */
+      transition: color 0.3s, text-shadow 0.3s;
+    }
+    a:hover {
+      color: #4a0e0d; /* 更深的 Ruby 颜色 */
+      text-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
+      text-decoration: underline;
+    }
+    footer {
+      text-align: center;
+      padding: 20px;
+      background-color: #701516; /* Ruby 主色调 */
+      color: #fff;
+      position: fixed;
+      bottom: 0;
+      width: 100%;
+      box-shadow: 0 -4px 8px rgba(0, 0, 0, 0.2);
+      transition: background-color 0.3s, box-shadow 0.3s;
+    }
 
-      /* 黑夜模式 */
-      body.dark-mode {
-        background-color: #121212;
-        color: #e0e0e0;
-      }
-      header.dark-mode {
-        background-color: #b71c1c; /* 暗夜模式下的 Ruby 主色调加深 */
-        color: #e0e0e0; /* 确保文本颜色对比度 */
-        box-shadow: 0 4px 8px rgba(0, 0, 0, 0.5);
-      }
-      main.dark-mode {
-        background: #1e1e1e;
-        color: #e0e0e0; /* 确保文本颜色对比度 */
-        box-shadow: 0 8px 16px rgba(0, 0, 0, 0.5);
-      }
-      section.dark-mode {
-        background: #2c2c2c;
-        border-color: #444;
-        color: #e0e0e0; /* 确保文本颜色对比度 */
-        box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
-      }
-      .grid-item.dark-mode {
-        background: #333;
-        color: #e0e0e0; /* 确保文本颜色对比度 */
-        box-shadow: 0 4px 8px rgba(0, 0, 0, 0.4);
-      }
+    /* 黑夜模式 */
+    body.dark-mode {
+      background-color: #121212;
+      color: #ffffff; /* 白色文本颜色 */
+    }
+    header.dark-mode {
+      background-color: #b71c1c; /* 暗夜模式下的 Ruby 主色调加深 */
+      color: #ffffff; /* 白色文本颜色 */
+      box-shadow: 0 4px 8px rgba(0, 0, 0, 0.5);
+    }
+    main.dark-mode {
+      background: #1e1e1e;
+      color: #ffffff; /* 白色文本颜色 */
+      box-shadow: 0 8px 16px rgba(0, 0, 0, 0.5);
+    }
+    section.dark-mode {
+      background: #2c2c2c;
+      border-color: #444;
+      color: #ffffff; /* 白色文本颜色 */
+      box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
+    }
+    .grid-item.dark-mode {
+      background: #333;
+      color: #ffffff; /* 白色文本颜色 */
+      box-shadow: 0 4px 8px rgba(0, 0, 0, 0.4);
+    }
+    a.dark-mode {
+      color: #ffffff; /* 白色文本颜色 */
+    }
 
-      /* 切换按钮样式 */
-      .theme-toggle {
-        position: fixed;
-        top: 20px;
-        right: 20px;
-        padding: 12px 24px;
-        background-color: #701516; /* Ruby 主色调 */
-        color: #fff;
-        border: none;
-        border-radius: 8px;
-        cursor: pointer;
-        transition: background-color 0.3s, transform 0.3s;
-        z-index: 1000;
-        font-size: 1.2rem;
-        font-weight: 600; /* 加粗按钮文字 */
-      }
-      .theme-toggle:hover {
-        background-color: #4a0e0d; /* 更深的 Ruby 颜色 */
-        transform: scale(1.05);
-      }
-    </style>
-  </head>
-  <body>
-    <header>
-      <h1>运维向导</h1>
-    </header>
-    <button class="theme-toggle" onclick="toggleTheme()">切换主题</button>
-    <main>
-      <section>
-        <h2>欢迎来到运维向导页面</h2>
-        <p>这是一个帮助你快速访问运维相关工具和资源的页面。</p>
-      </section>
-      <section>
-        <h2>常用工具和资源</h2>
-        <div class="grid-container">
-          <div class="grid-item">
-            <a href="http://example.com/tool1" target="_blank">工具 1</a>
-          </div>
-          <div class="grid-item">
-            <a href="http://example.com/tool2" target="_blank">工具 2</a>
-          </div>
-          <div class="grid-item">
-            <a href="http://example.com/tool3" target="_blank">工具 3</a>
-          </div>
-          <div class="grid-item">
-            <a href="http://example.com/tool4" target="_blank">工具 4</a>
-          </div>
-          <div class="grid-item">
-            <a href="http://example.com/tool5" target="_blank">工具 5</a>
-          </div>
-          <div class="grid-item">
-            <a href="http://example.com/tool6" target="_blank">工具 6</a>
-          </div>
-          <div class="grid-item">
-            <a href="http://example.com/tool7" target="_blank">工具 7</a>
-          </div>
-          <div class="grid-item">
-            <a href="http://example.com/tool8" target="_blank">工具 8</a>
-          </div>
-          <div class="grid-item">
-            <a href="http://example.com/tool9" target="_blank">工具 9</a>
-          </div>
-          <div class="grid-item">
-            <a href="http://example.com/tool10" target="_blank">工具 10</a>
-          </div>
-          <div class="grid-item">
-            <a href="http://example.com/tool11" target="_blank">工具 11</a>
-          </div>
-          <div class="grid-item">
-            <a href="http://example.com/tool12" target="_blank">工具 12</a>
-          </div>
+    /* 切换按钮样式 */
+    .theme-toggle {
+      position: fixed;
+      top: 20px;
+      right: 20px;
+      padding: 12px 24px;
+      background-color: #701516; /* Ruby 主色调 */
+      color: #fff;
+      border: none;
+      border-radius: 8px;
+      cursor: pointer;
+      transition: background-color 0.3s, transform 0.3s;
+      z-index: 1000;
+      font-size: 1.2rem;
+      font-weight: 600; /* 加粗按钮文字 */
+    }
+    .theme-toggle:hover {
+      background-color: #4a0e0d; /* 更深的 Ruby 颜色 */
+      transform: scale(1.05);
+    }
+  </style>
+</head>
+<body>
+  <header>
+    <h1>运维向导</h1>
+  </header>
+  <button class="theme-toggle" onclick="toggleTheme()">切换主题</button>
+  <main>
+    <section>
+      <h2>欢迎来到运维向导页面</h2>
+      <p>这是一个帮助你快速访问运维相关工具和资源的页面。</p>
+    </section>
+    <section>
+      <h2>常用工具和资源</h2>
+      <div class="grid-container">
+        <div class="grid-item">
+          <a href="http://example.com/tool1" target="_blank">工具 1</a>
         </div>
-      </section>
-      <section>
-        <h2>联系信息</h2>
-        <p>如果你有任何问题或需要帮助，请通过以下方式联系我：</p>
-        <p>
-          Email:
-          <a href="mailto:your.email@example.com">your.email@example.com</a>
-        </p>
-      </section>
-    </main>
-    <footer>&copy; 2024 运维团队</footer>
+        <div class="grid-item">
+          <a href="http://example.com/tool2" target="_blank">工具 2</a>
+        </div>
+        <div class="grid-item">
+          <a href="http://example.com/tool3" target="_blank">工具 3</a>
+        </div>
+        <div class="grid-item">
+          <a href="http://example.com/tool4" target="_blank">工具 4</a>
+        </div>
+        <div class="grid-item">
+          <a href="http://example.com/tool5" target="_blank">工具 5</a>
+        </div>
+        <div class="grid-item">
+          <a href="http://example.com/tool6" target="_blank">工具 6</a>
+        </div>
+        <div class="grid-item">
+          <a href="http://example.com/tool7" target="_blank">工具 7</a>
+        </div>
+        <div class="grid-item">
+          <a href="http://example.com/tool8" target="_blank">工具 8</a>
+        </div>
+        <div class="grid-item">
+          <a href="http://example.com/tool9" target="_blank">工具 9</a>
+        </div>
+        <div class="grid-item">
+          <a href="http://example.com/tool10" target="_blank">工具 10</a>
+        </div>
+        <div class="grid-item">
+          <a href="http://example.com/tool11" target="_blank">工具 11</a>
+        </div>
+        <div class="grid-item">
+          <a href="http://example.com/tool12" target="_blank">工具 12</a>
+        </div>
+      </div>
+    </section>
+    <section>
+      <h2>联系信息</h2>
+      <p>如果你有任何问题或需要帮助，请通过以下方式联系我：</p>
+      <p>
+        Email:
+        <a href="mailto:your.email@example.com">your.email@example.com</a>
+      </p>
+    </section>
+  </main>
+  <footer>&copy; 2024 运维团队</footer>
 
-    <script>
-      // 检测系统主题设置
-      function detectColorScheme() {
-        const prefersDarkScheme = window.matchMedia(
-          "(prefers-color-scheme: dark)"
-        ).matches;
-        const savedTheme = localStorage.getItem("theme");
+  <script>
+    // 检测系统主题设置
+    function detectColorScheme() {
+      const prefersDarkScheme = window.matchMedia(
+        "(prefers-color-scheme: dark)"
+      ).matches;
+      const savedTheme = localStorage.getItem("theme");
 
-        if (savedTheme) {
-          document.body.classList.toggle("dark-mode", savedTheme === "dark");
-          document
-            .querySelector("header")
-            .classList.toggle("dark-mode", savedTheme === "dark");
-          document
-            .querySelector("main")
-            .classList.toggle("dark-mode", savedTheme === "dark");
-          document
-            .querySelectorAll("section")
-            .forEach((section) =>
-              section.classList.toggle("dark-mode", savedTheme === "dark")
-            );
-          document
-            .querySelectorAll(".grid-item")
-            .forEach((item) =>
-              item.classList.toggle("dark-mode", savedTheme === "dark")
-            );
-        } else if (prefersDarkScheme) {
-          document.body.classList.add("dark-mode");
-          document.querySelector("header").classList.add("dark-mode");
-          document.querySelector("main").classList.add("dark-mode");
-          document
-            .querySelectorAll("section")
-            .forEach((section) => section.classList.add("dark-mode"));
-          document
-            .querySelectorAll(".grid-item")
-            .forEach((item) => item.classList.add("dark-mode"));
-        }
-      }
-
-      // 切换主题
-      function toggleTheme() {
-        const isDarkMode = document.body.classList.toggle("dark-mode");
+      if (savedTheme) {
+        document.body.classList.toggle("dark-mode", savedTheme === "dark");
         document
           .querySelector("header")
-          .classList.toggle("dark-mode", isDarkMode);
+          .classList.toggle("dark-mode", savedTheme === "dark");
         document
           .querySelector("main")
-          .classList.toggle("dark-mode", isDarkMode);
+          .classList.toggle("dark-mode", savedTheme === "dark");
         document
           .querySelectorAll("section")
           .forEach((section) =>
-            section.classList.toggle("dark-mode", isDarkMode)
+            section.classList.toggle("dark-mode", savedTheme === "dark")
           );
         document
           .querySelectorAll(".grid-item")
-          .forEach((item) => item.classList.toggle("dark-mode", isDarkMode));
-
-        // 保存主题设置到 localStorage
-        localStorage.setItem("theme", isDarkMode ? "dark" : "light");
+          .forEach((item) =>
+            item.classList.toggle("dark-mode", savedTheme === "dark")
+          );
+        document.querySelectorAll("a").forEach((link) =>
+          link.classList.toggle("dark-mode", savedTheme === "dark")
+        );
+      } else if (prefersDarkScheme) {
+        document.body.classList.add("dark-mode");
+        document.querySelector("header").classList.add("dark-mode");
+        document.querySelector("main").classList.add("dark-mode");
+        document
+          .querySelectorAll("section")
+          .forEach((section) => section.classList.add("dark-mode"));
+        document
+          .querySelectorAll(".grid-item")
+          .forEach((item) => item.classList.add("dark-mode"));
+        document.querySelectorAll("a").forEach((link) =>
+          link.classList.add("dark-mode")
+        );
       }
+    }
 
-      // 初始化
-      detectColorScheme();
-    </script>
-  </body>
+    // 切换主题
+    function toggleTheme() {
+      const isDarkMode = document.body.classList.toggle("dark-mode");
+      document
+        .querySelector("header")
+        .classList.toggle("dark-mode", isDarkMode);
+      document
+        .querySelector("main")
+        .classList.toggle("dark-mode", isDarkMode);
+      document
+        .querySelectorAll("section")
+        .forEach((section) =>
+          section.classList.toggle("dark-mode", isDarkMode)
+        );
+      document
+        .querySelectorAll(".grid-item")
+        .forEach((item) => item.classList.toggle("dark-mode", isDarkMode));
+      document.querySelectorAll("a").forEach((link) =>
+        link.classList.toggle("dark-mode", isDarkMode)
+      );
+
+      // 保存主题设置到 localStorage
+      localStorage.setItem("theme", isDarkMode ? "dark" : "light");
+    }
+
+    // 初始化
+    detectColorScheme();
+  </script>
+</body>
 </html>
 
